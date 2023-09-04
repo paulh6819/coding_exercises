@@ -1,3 +1,6 @@
+//Questions -
+// 1. what is the differnce between a prototype method and a static method?
+
 import { readFileSync } from "fs";
 
 const fileReader = function (filepath) {
@@ -5,6 +8,9 @@ const fileReader = function (filepath) {
 };
 
 const scrabbleWords = fileReader("./sowpods.txt");
+
+const baby_names_1880 = fileReader("baby_names_1880_short.txt");
+const baby_names_2020 = fileReader("baby_names_2020_short.txt");
 
 // What are all of the words that start with a Q, end with a Z, and are less than or equal to 6 letters long?
 
@@ -166,3 +172,50 @@ function sumAddsUpToNum(arr, num) {
 console.log(
   sumAddsUpToNum([1, 3, 5, 2, 4, 1, -1, -2, -3, 0, 6, 2, 3, 3, -1, -4, 7], 4)
 );
+
+// Problem: Three Sum
+// Given an array of integers, find all unique triplets in the array which gives the sum of zero.
+// Note:
+// The solution set must not contain duplicate triplets.
+
+function letterCount(str) {
+  const charCount = {};
+
+  str
+    .toUpperCase()
+    .split("")
+    .forEach((char) => {
+      if (charCount[char]) {
+        charCount[char] += 1;
+      } else {
+        charCount[char] = 1;
+      }
+    });
+
+  const sortedChars = Object.entries(charCount).sort((a, b) => b[1] - a[1]);
+
+  const sortedDictionary = {};
+
+  sortedChars.forEach(([key, value]) => {
+    sortedDictionary[key] = value;
+  });
+  return sortedDictionary;
+}
+
+console.log(
+  letterCount("this is a string where i am Counting all the letters Thank you")
+);
+
+//constructor problem
+function bankAccount(deposit, withdrawl) {
+  this.deposit;
+  this.withdrawl;
+}
+
+const filteredBabynamesBothLists = baby_names_1880.filter((babynames1) =>
+  baby_names_2020.includes(babynames1)
+);
+
+console.log(filteredBabynamesBothLists);
+
+//apple has create ML - (check it out)

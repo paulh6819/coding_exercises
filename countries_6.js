@@ -33,14 +33,25 @@ const setResult = new Set(result);
 
 console.log(setResult);
 
-function usingFilterToFindCountry(arr) {
-  return arr.filter((country, arr) => {
-    const upperCaseCountry = country.toUpperCase();
-    for (const i of arr) {
-      if (i.toUpperCase === upperCaseCountry) {
-        return country;
+//I see where your's went wrong if you see here below this does not capitilize the entire word and gives a close result but does
+// not inlude romania because Oman starts with a campital letter and the "o" in romainia is not capitalized
+
+//fix the manner that i converted to uppercase
+
+function solveUsingFilter(arr) {
+  return arr.filter((word) => {
+    for (const country of arr) {
+      const upperCaseWord = word.toUpperCase();
+      const countryUppercase = country.toUpperCase();
+      if (
+        upperCaseWord.includes(countryUppercase) &&
+        countryUppercase !== upperCaseWord
+      ) {
+        return true;
+      } else {
+        return false;
       }
     }
   });
 }
-console.log("using filter:", usingFilterToFindCountry(countries));
+console.log("result using filter", solveUsingFilter(countries));

@@ -39,3 +39,26 @@ for (const country of countries) {
   }
 }
 console.log(shortCountries);
+
+function usingReduceShortestName(arr) {
+  return arr.reduce((acc, word) => {
+    if (acc.length === 0 || word.length < acc[0].length) {
+      return [word];
+    } else if (word.length === acc[0].length) {
+      acc.push(word);
+      return acc;
+    } else {
+      return acc;
+    }
+  }, []);
+}
+
+console.log("results from reduce", usingReduceShortestName(countries));
+
+function filteredShortest(arr) {
+  arr.sort((a, b) => a.length - b.length);
+
+  return arr.filter((word) => word.length === arr[0].length);
+}
+
+console.log("result from filter", filteredShortest(countries));
