@@ -43,15 +43,11 @@ function solveUsingFilter(arr) {
     for (const country of arr) {
       const upperCaseWord = word.toUpperCase();
       const countryUppercase = country.toUpperCase();
-      if (
+      return (
         upperCaseWord.includes(countryUppercase) &&
         countryUppercase !== upperCaseWord
-      ) {
-        return true;
-      } else {
-        return false;
-      }
+      );
     }
   });
 }
-console.log("result using filter", solveUsingFilter(countries));
+console.log("result using filter no uppercase", solveUsingFilter(countries));
