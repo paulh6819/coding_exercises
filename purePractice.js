@@ -219,3 +219,23 @@ const filteredBabynamesBothLists = baby_names_1880.filter((babynames1) =>
 console.log(filteredBabynamesBothLists);
 
 //apple has create ML - (check it out)
+
+function toWeirdCase(string) {
+  //split string
+  const splitString = string.split(" ");
+  const correctedWords = [];
+  for (let word of splitString) {
+    let newWord = [];
+    for (let char of word) {
+      if (word.indexOf(char) % 2 === 0) {
+        newWord.push(char.toUpperCase());
+      } else if (word.indexOf(char) % 2 !== 0) {
+        newWord.push(char);
+      }
+    }
+    correctedWords.push(newWord.join(""));
+  }
+  return correctedWords.join(" ");
+}
+
+console.log(toWeirdCase("hey how are you doing good?"));
