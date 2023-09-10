@@ -15,13 +15,9 @@ function countTheAs(str) {
   return counter;
 }
 
-function countTheAsUsingFilter(str) {
-  return str.split("").filter((char) => char === "A").length;
-}
-
 console.log(
   "using filter",
-  countTheAsUsingFilter("this is A giant test to sea If i know Anything")
+  countTheAsUsingFilter("THIS is A giant test to sea If i know Anything")
 );
 console.log(countTheAs(test));
 console.assert(countTheAs(test) === 32, "expected A's to be three");
@@ -30,3 +26,16 @@ console.assert(countTheAs(test) === 32, "expected A's to be three");
 // 2. rewrite this with filter
 // 3. what would be a very javascript way of solving this, with string, becuase im converting this to an arry, check M?
 //4.
+
+//using filter
+function countTheAsUsingFilter(str) {
+  return str.split("").filter((char) => char === "A").length;
+}
+
+//using string only methods, very javascript
+
+function stringOnly(str) {
+  return [...str].reduce((acc, char) => (char === "A" ? acc + 1 : acc), 0);
+}
+
+console.log("test using reduce", stringOnly(" SIX AAAAAA"));

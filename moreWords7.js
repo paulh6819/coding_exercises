@@ -35,3 +35,17 @@ const wordsOver50 = scrabbleWords.filter((word) => {
 });
 
 console.log(wordsOver50);
+
+function compoundWords(arr) {
+  return arr.filter((word) => {
+    for (let smallerWord of arr) {
+      for (let smallerWord2 of arr) {
+        if (word === smallerWord + smallerWord2) {
+          return true;
+        }
+      }
+    }
+    return false;
+  });
+}
+console.log("is this working", compoundWords(scrabbleWords));

@@ -1,5 +1,11 @@
-//Questions -
+//Questions - things to go over and practice
 // 1. what is the differnce between a prototype method and a static method?
+
+// 2. what is the call stack? How does it apply to you or how do you apply it? can we do anything quickly to demonstrate it?
+
+// notes
+// 1. when you use slice, the first number in the index of .slice(4) is inclusive and if you only use one number it will call the rest
+// of the string
 
 import { readFileSync } from "fs";
 
@@ -226,16 +232,168 @@ function toWeirdCase(string) {
   const correctedWords = [];
   for (let word of splitString) {
     let newWord = [];
-    for (let char of word) {
-      if (word.indexOf(char) % 2 === 0) {
-        newWord.push(char.toUpperCase());
-      } else if (word.indexOf(char) % 2 !== 0) {
-        newWord.push(char);
+
+    for (let i = 0; i < word.length; i++) {
+      if (i % 2 === 0) {
+        newWord.push(word[i].toUpperCase());
+      } else if (i % 2 === 1) {
+        newWord.push(word[i]);
       }
     }
+
+    // for (let char of word) {
+    //   if (word.indexOf(char) % 2 === 0) {
+    //     newWord.push(char.toUpperCase());
+    //   } else if (word.indexOf(char) % 2 !== 0) {
+    //     newWord.push(char);
+    //   }
+    // }
     correctedWords.push(newWord.join(""));
   }
   return correctedWords.join(" ");
 }
 
 console.log(toWeirdCase("hey how are you doing good?"));
+
+function greet(language) {
+  const dataBase = [
+    ["english", "Welcome"],
+    ["czech", "Vitejte"],
+    ["danish", "Velkomst"],
+    ["dutch", "Welkom"],
+    ["estonian", "Tere tulemast"],
+    ["finnish", "Tervetuloa"],
+    ["flemish", "Welgekomen"],
+    ["french", "Bienvenue"],
+    ["german", "Willkommen"],
+    ["irish", "Failte"],
+    ["italian", "Benvenuto"],
+    ["latvian", "Gaidits"],
+    ["lithuanian", "Laukiamas"],
+    ["polish", "Witamy"],
+    ["spanish", "Bienvenido"],
+    ["swedish", "Valkommen"],
+    ["welsh", "Croeso"],
+  ];
+
+  const resultA = dataBase.filter((pair) => pair[0] === language)[0];
+  resultA.shift();
+  return resultA[0];
+}
+
+// console.log(greet("english"));
+
+// function reverseMessage(str) {
+//   let str2 = str.toLowerCase();
+
+//   let reversedStr = str2.split("").reverse();
+
+//   const shiftedStr = reversedStr.shift().toUpperCase();
+//   const poppedStr = reversedStr.pop().toLowerCase();
+//   //const unshiftedStr =  reversedStr.shift(shiftedStr.toUpperCase())shiftedStr.toUpperCase()
+
+//   let allMostDone =
+//     shiftedStr + reversedStr.join("") + poppedStr.split("").join("");
+
+//   let resultStr = "";
+
+//   for (let i = 0; i < allMostDone.length; i++) {
+//     if (allMostDone[i] === " ") {
+//       resultStr += allMostDone[i] + allMostDone[i + 1].toUpperCase();
+//       i++;
+//     } else {
+//       resultStr += allMostDone[i];
+// //     }
+//   }
+
+//   return resultStr;
+// }
+// function compoundWords(arr) {
+//   return arr.filter((word) => {
+//     for (let smallerWord of arr) {
+//       for (let smallerWord2 of arr) {
+//         if (word === smallerWord + smallerWord2) {
+//           return word;
+//         }
+//       }
+//     }
+//   });
+// }
+// console.log("is this working", compoundWords(scrabbleWords));
+
+// console.log(reverseMessage("Today is the 14th of January!"));
+
+// if ("!yraunaj Fo Ht41 Eht Si Yadot" === "!yraunaj Fo Ht41 Eht Si Yadot") {
+//   console.log("code wars editor sucks");
+// }
+
+// Write a function, taking two strings in parameter, that tests whether or not the first string contains all of the letters of the second string, in order.
+
+// The function should return true if that is the case, and else false. Letter comparison should be case-INsensitive.
+
+// go through the orgininal word problems and solve using higher order functions
+
+//What is the longest word where no letter is used more than once?
+
+function longestWordNoDups(arr) {
+  return arr
+    .filter((word) => new Set(word.split("")).size === word.length)
+    .sort((a, b) => b.length - a.length)[0];
+}
+console.log(longestWordNoDups(scrabbleWords));
+
+function usesAtLeastThreeLetters(arr) {
+  return arr.filter((word) => new Set(word.split("")).size < 4);
+}
+
+console.log(usesAtLeastThreeLetters(scrabbleWords));
+
+// DO THIS BELOW
+
+// Goal: solve this problem in < 30 minutes.
+
+// Write a function that takes as input two arguments:
+
+// 1. An array of numbers
+// 2. An integer `k`
+
+// and returns an array with all of the pairs of numbers from that array that sum to `k`. You can’t use the same number twice. You can assume that there are no duplicate numbers in the array.
+
+// Example
+
+// - Input array: `[1, 9, 6, 3, 5, 4]`
+// - `k`: 10
+// - Result: `[[1, 9], [6, 4]]` // Note that `[5, 5]` is not in the solution
+
+function returnKlargest(arr, k) {
+  arr.sort((a, b) => b - a);
+  return arr.slice(0, k);
+}
+
+console.log(returnKlargest([5, 16, 7, 9, -1, 4, 3, 11, 2], 3));
+
+// Problem: Given a string, return the second half of the string. If the string length is odd, include the middle character.
+const test1 = "food";
+const test2 = "chester";
+function return2ndHalf(string) {
+  const halfOfLength = string.length / 2;
+  if (string.length % 2 === 0) {
+    return string.slice(halfOfLength);
+  } else {
+    return string.slice(Math.floor(halfOfLength));
+  }
+}
+console.log(return2ndHalf(test2));
+
+const test3 = "xxxi";
+function determineFirstIsLast(string, char) {
+  return string.indexOf(char) === string.lastIndexOf(char);
+}
+
+console.log(determineFirstIsLast(test3, "i"));
+
+function reversingWordOrder(string) {
+  return string.split(" ").reverse().join(" ");
+}
+
+console.log(reversingWordOrder("This is a sentence that I'm making"));
