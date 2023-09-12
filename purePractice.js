@@ -397,3 +397,65 @@ function reversingWordOrder(string) {
 }
 
 console.log(reversingWordOrder("This is a sentence that I'm making"));
+
+//remove index of k
+
+//starts and ends with y
+
+function startsWithendsWithY(arr) {
+  return arr.filter((word) => word.startsWith("Y") && word.endsWith("Y"));
+}
+
+console.log(startsWithendsWithY(scrabbleWords));
+
+const startsEndsShort = (arr) =>
+  arr.filter((word) => word.startsWith("Y") && word.endsWith("Y"));
+
+console.log("this is the second shortest", startsEndsShort(scrabbleWords));
+
+function longestPalindrome(arr) {
+  return arr
+    .filter((word) => word.split("").reverse().join("") === word)
+    .sort((a, b) => b.length - a.length)[0];
+}
+
+console.log(longestPalindrome(scrabbleWords));
+
+function leastCommonXZQ(arr) {
+  const letterCounter = {
+    Z: 0,
+    Q: 0,
+    X: 0,
+  };
+  arr
+    .join()
+    .split("")
+    .forEach((char) => {
+      if (letterCounter[char] !== undefined) letterCounter[char] += 1;
+    });
+  return Object.keys(letterCounter).reduce((a, b) =>
+    letterCounter[a] > letterCounter[b] ? a : b
+  );
+}
+console.log(leastCommonXZQ(scrabbleWords));
+
+function nameInStr(str, name) {
+  let letterCount = 0;
+  name = name.toLowerCase();
+  for (let i = 0; i < name.length; i++) {
+    console.log("this is the letter count", letterCount);
+    let newStr = str.toLowerCase();
+    console.log(newStr);
+    let nameChar = name[i];
+    console.log(name[i]);
+    let strIndex = newStr.indexOf(nameChar);
+    console.log(strIndex);
+    if (strIndex !== -1 && strIndex < newStr.indexOf(name[i + 1])) {
+      letterCount += 1;
+    }
+    str = str.slice(strIndex);
+  }
+  return letterCount;
+}
+
+console.log(nameInStr("Across the rivers", "chris"));
