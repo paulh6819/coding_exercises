@@ -132,6 +132,8 @@ const testSet = countries.filter((country) => {
 });
 console.log("results for set", testSet);
 console.timeLog("answer time test of set:");
+//below is the fastest yet
+
 console.time("answer time test of indexOF:");
 const testUsingIndexOf = countries.filter((country) => {
   const upperCaseCountry = country.toUpperCase();

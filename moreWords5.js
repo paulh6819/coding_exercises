@@ -12,6 +12,8 @@ const scrabbleWords = fileReader("./sowpods.txt");
 // then sort the array, largest to smallest and return everyone word that matches the length of the 0 index, make another forloop
 //that goes over the newly sorted array, returns all the words that match the length of index[0], then breaks
 
+//optimise for constanttime O(1)
+
 const sortedArray = scrabbleWords
   .sort((a, b) => b.length - a.length)
   .filter((word) => {

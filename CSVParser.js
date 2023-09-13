@@ -8,6 +8,8 @@ const fileReader = function (filepath) {
 
 const NBAData = fileReader("nba_finals.csv");
 
+console.log(NBAData);
+
 function parseCSV(lines) {
   const headers = lines[0].split(",");
   const result = [];
@@ -23,3 +25,12 @@ function parseCSV(lines) {
 }
 
 console.log(parseCSV(NBAData));
+
+//to start a function think - whats the indented input, whats the intended output
+
+export const readParseCSV = (filePath) => {
+  const fileData = fileReader(filePath);
+  return parseCSV(fileData);
+};
+
+//could also have a function that composes both function

@@ -32,6 +32,7 @@ for (const country of countries) {
 
 console.log(result);
 
+//practice with filter
 const numArray = [8, 9, 302, 5, 4, 2342, 5, 6, 7, 3, 7, 8, 1, 10, 49];
 
 const filteredNum = numArray.filter((num, i, arr) => num > arr[1]);

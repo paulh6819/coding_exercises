@@ -19,10 +19,44 @@ function yearOfWinner(year) {
   for (let item of NBAData) {
     const splitItem = item.split(",");
 
-    if (parseInt(splitItem[0]) === year) {
+    if (parseInt(splitItem[0], 10) === year) {
       return splitItem[1];
     }
   }
 }
 
 console.log(yearOfWinner(2018));
+
+//work more with parseINt
+//not specifying the base with parseInt can lead javascript to misintrepret the base and cause security problems.
+
+//HomeWork make CSV parser in this format: from : [
+// "Year,Winner,Loser,Score,MVP",
+// "2019,Toronto Raptors,Golden State Warriors,3-2,Kawhi Leonard",
+// "2018,Golden State Warriors,Cleveland Cavaliers,4-0,Kevin Durant",
+// "2017,Golden State Warriors,Cleveland Cavaliers,4-1,Kevin Durant"
+//]
+
+//to:[
+//     {
+//         "Year": "2019",
+//         "Winner": "Toronto Raptors",
+//         "Loser": "Golden State Warriors",
+//         "Score": "3-2",
+//         "MVP": "Kawhi Leonard"
+//     },
+//     {
+//         "Year": "2018",
+//         "Winner": "Golden State Warriors",
+//         "Loser": "Cleveland Cavaliers",
+//         "Score": "4-0",
+//         "MVP": "Kevin Durant"
+//     },
+//     {
+//         "Year": "2017",
+//         "Winner": "Golden State Warriors",
+//         "Loser": "Cleveland Cavaliers",
+//         "Score": "4-1",
+//         "MVP": "Kevin Durant"
+//     }
+// ]

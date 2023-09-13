@@ -47,3 +47,12 @@ console.log(filteredBabyNames);
 //function signature <-----
 
 //functional and object orientented langauge
+
+//one major take away fro thie lesson is merely pushing to an arry when your intent is to filter an array is superflous, and the goal
+// is to create readable, beautiful code that also reduces cognigitve load so you can code longer, and more effectively.
+// methods like filter, which i actully thought were needlessly complex, present a useful layer of abstraction. And here
+// another self generated take away: while consciouly abstarting certain things can present a steeper leanring curve to begin with,
+// in the long run the reduction of cognitive load is well worth it. But there is one hole in this theory of mine: python has abstarted
+// much away and the learning curve is lower than a languge like C++ which inturn abstracts much of machine code. So at a certain
+// level abstartion becomes difficult, and I would imagine that absrtation not only lessons control, but becuase impossible to
+// understant of use.

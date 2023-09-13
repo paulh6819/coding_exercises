@@ -61,4 +61,6 @@ function solveUingForEach(arr1, arr2) {
   return resultArry;
 }
 
-console.log(solveUingForEach(babyNames_1880, babyNames_2020));
+console.log(
+  solveUingForEach("solved using foreach", babyNames_1880, babyNames_2020)
+);

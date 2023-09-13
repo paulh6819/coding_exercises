@@ -6,6 +6,18 @@
 // notes
 // 1. when you use slice, the first number in the index of .slice(4) is inclusive and if you only use one number it will call the rest
 // of the string
+// 2. .some() brings back a boolean in relation to if even one of the items meets the constions, as opposed to filter that brings back each item
+// into a new array if the conditions are met
+
+//notes of things went over with mentors
+//1. importing and exporting your own funcitons is a powerful way to organize your code for the sake of readibility
+//and sectioning off chunks of thought. This is a big deal because coding for the developer (as opposed to
+//the computer scientist or soemthing) if about delivering thoughts that are fairly straigtforward by themselves
+// but become difficlut when chained together, in the sense that the idea of what they are together must be understood
+// if your code is to progress
+
+//2. this is really important ---> when attempting to create a new function, comment first above, what is supposed to come in, and what is
+// the desired output. this really helps gather my thoughts
 
 import { readFileSync } from "fs";
 
@@ -439,6 +451,8 @@ function leastCommonXZQ(arr) {
 }
 console.log(leastCommonXZQ(scrabbleWords));
 
+//redo this one
+
 function nameInStr(str, name) {
   let letterCount = 0;
   name = name.toLowerCase();
@@ -459,3 +473,88 @@ function nameInStr(str, name) {
 }
 
 console.log(nameInStr("Across the rivers", "chris"));
+
+//  do this problem too from leetcode
+//  /**
+//  * @param {number[]} nums
+//  * @param {number} k
+//  * @return {number}
+//  */
+// var subarraySum = function(nums, k) {
+//     let results = []
+//     for(let i = 0; i < nums.length ; i++){
+//         let sum = 0;
+//         let subArray = [nums[i]];
+//         if(subArray === k){
+//             results.push(subArray);
+//             continue
+//         }
+//         for(let j = i + 1; j < nums.length; j++){
+//            sum = nums[i] + nums[j];
+//            if(sum > k){
+//                 break
+//             }else if( sum < k ){
+//                sum+= nums[j + 1]
+//             }else if ()
+//         }
+//     }
+// };
+
+// //make sure to push subarrray to results if conditions are met
+
+// //the answer/**
+//  * @param {number[]} nums
+//  * @param {number} k
+//  * @return {number}
+//  */
+// var subarraySum = function(nums, k) {
+//     let count = 0; // This will store the number of subarrays that sum up to k
+
+//     for(let i = 0; i < nums.length; i++) {
+//         let sum = 0; // Reset sum for every new starting point
+
+//         for(let j = i; j < nums.length; j++) {
+//             sum += nums[j]; // Add current number to sum
+
+//             if(sum === k) {
+//                 count++; // If sum matches k, increase the count
+//             }
+//         }
+//     }
+
+//     return count;
+// };
+
+//Next, is “ABCDEF” the longest alphabet chain that can be found in a word, or is there a longer chain starting somewhere else in the alphabet? Find the
+// longest chain and the words that can be made from that chain.
+
+// start with problem above
+
+function getYearsWon(team) {}
+
+//practice using map
+
+function squareTheNumbers(arr) {
+  return arr.map((num) => num * num);
+}
+
+console.log(squareTheNumbers([1, 2, 3, 4]));
+
+const userArry = [
+  { id: 1, username: "Alice", email: "alice@example.com" },
+  { id: 2, username: "Bob", email: "bob@example.com" },
+];
+
+function usersMap(obj) {
+  return obj.map((user) => user.username);
+}
+
+console.log(usersMap(userArry));
+
+//using .some()
+
+const smallNumArr = [1, 2, 3, 4, -5];
+
+const hasNegitive = smallNumArr.some((num) => num < 0);
+
+console.log(hasNegitive);

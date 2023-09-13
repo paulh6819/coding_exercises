@@ -38,4 +38,4 @@ function useFilter(arr) {
   });
 }
 
-console.log("result useing filter", useFilter(countries));
+console.log("result using filter", useFilter(countries));

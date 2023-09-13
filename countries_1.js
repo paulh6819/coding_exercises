@@ -20,6 +20,8 @@ for (let name of countries) {
 
 console.log(result);
 
+// the goal here is to revisit this question and to solve it more consicely using new methods
+
 function returnsUnited(arr) {
   return arr.filter((countries) => countries.toUpperCase().includes("UNITED"));
 }

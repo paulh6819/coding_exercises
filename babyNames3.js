@@ -44,6 +44,17 @@ console.log(nameCheck(babyNames, scrabbleWords));
 // make sure to think hard about the phislophy of debuggin, remember that practice is essential here
 // looking into how to use the dev tools (it will pay off)
 
+
+//This is the second way the instructions say to solve the problem
+
+function solvingUsingDictionary(babyNames, scrabbleWords){
+ 
+        const mappedNames = 
+}
+
+
+
+
 //Additional solves using strategies from previous pairing sessions
 
 function usingForEachAndFilter(babyNames, scrabbleWords) {
@@ -63,3 +74,5 @@ function usingForEachAndFilter(babyNames, scrabbleWords) {
 }
 
 console.log(usingForEachAndFilter(babyNames, scrabbleWords));
+
+
