@@ -19,6 +19,11 @@
 //2. this is really important ---> when attempting to create a new function, comment first above, what is supposed to come in, and what is
 // the desired output. this really helps gather my thoughts
 
+// notes on tips for a tech interview
+// 1. ask for claificaiton, at the least oportunity. practice rephrasing the question in my own words and saying it out loud back to the interviewer
+// for confirmation. This could be good not only for clarifiy my own thoughts but sometimes interviewers are indeed looking for an atempt to communication
+// about the probelm.
+
 import { readFileSync } from "fs";
 
 const fileReader = function (filepath) {
@@ -558,3 +563,60 @@ const smallNumArr = [1, 2, 3, 4, -5];
 const hasNegitive = smallNumArr.some((num) => num < 0);
 
 console.log(hasNegitive);
+
+//using .flat() and .some() together. Check and see if there is 5
+
+const data = [1, 2, [3, 4, [5, 6, 7], 8], 9];
+const isThereFive = data.flat(Infinity).some((num) => num === 5);
+console.log(isThereFive);
+
+//capiliize names with .map()
+const namesToCap = ["alice", "bob", "charlie", "paul", "tiffany"];
+
+const cappedNames = namesToCap.map((name) => {
+  const splitName = name.split("");
+  splitName[0] = splitName[0].toUpperCase();
+  return splitName.join("");
+});
+// a more succint names to cap using map
+const cappedNames2 = namesToCap.map((name) => {
+  return name.charAt(0).toUpperCase() + name.slice(1);
+});
+
+console.log(cappedNames2);
+
+//more map practice:
+
+//Format Prices:
+// Given an array of product prices (as numbers), return a new array where each price is formatted as a string with a dollar sign in front and rounded to two decimal places.
+// Example Input: [9.9, 10, 1.23]
+// Expected Output: ["$9.90", "$10.00", "$1.23"]
+// Length of Words:
+// Given an array of words, return a new array where each element is the length of the corresponding word from the original array.
+// Example Input: ["apple", "banana", "cherry"]
+// Expected Output: [5, 6, 6]
+
+//write a function that mapped a doubled number
+
+function doubleNum(arr) {
+  return arr.map((num) => num * 2);
+}
+
+console.log(doubleNum(smallNumArr));
+
+//Given an array of numbers, use Math.max to find the maximum value in the array.
+function findMax(nums) {
+  return Math.max(...nums);
+}
+console.log(findMax(smallNumArr));
+
+//turn an array of floating points into an array on numbers rounded down
+
+const floats = [5.6, 8.9, 2.1, 9.5, 7.7];
+
+function downFloats(arr) {
+  let floored = arr.map((num) => Math.floor(num));
+  let cieled = arr.map((num) => Math.ceil(num));
+  return [floored, cieled];
+}
+console.log(downFloats(floats));
