@@ -26,6 +26,8 @@ function parseCSV(lines) {
 
 console.log(parseCSV(NBAData));
 
+console.log();
+
 //to start a function think - whats the indented input, whats the intended output
 
 export const readParseCSV = (filePath) => {

@@ -19,6 +19,8 @@
 //2. this is really important ---> when attempting to create a new function, comment first above, what is supposed to come in, and what is
 // the desired output. this really helps gather my thoughts
 
+//3. we can put my CSV parser on NPM for dowloads!
+
 // notes on tips for a tech interview
 // 1. ask for claificaiton, at the least oportunity. practice rephrasing the question in my own words and saying it out loud back to the interviewer
 // for confirmation. This could be good not only for clarifiy my own thoughts but sometimes interviewers are indeed looking for an atempt to communication
@@ -620,3 +622,36 @@ function downFloats(arr) {
   return [floored, cieled];
 }
 console.log(downFloats(floats));
+
+// Of course! Here are some progressively challenging problems that deal with string manipulation, similar to the one you've just tackled:
+
+// Reverse Words in a String:
+// Write a function that takes a string as an argument and returns the string with each word reversed but maintains their original order.
+// javascript
+// Copy code
+// reverseWords("Hello World"); // returns "olleH dlroW"
+// Compress String:
+// Write a function that performs basic string compression using counts of repeated characters. If the compressed string is longer than the original string, return the original string.
+// javascript
+// Copy code
+// compressString("aabcccccaaa"); // returns "a2b1c5a3"
+// compressString("abcdef"); // returns "abcdef" (since compression would be "a1b1c1d1e1f1" which is longer)
+// Balanced Parentheses:
+// Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if:
+// Open brackets are closed by the same type of brackets.
+// Open brackets are closed in the correct order.
+// Note that an empty string is also considered valid.
+// javascript
+// Copy code
+// isValid("()"); // returns true
+// isValid("()[]{}"); // returns true
+// isValid("(]"); // returns false
+// isValid("([)]"); // returns false
+// Find First Non-Repeating Character:
+// Write a function that takes a string and returns the first character that doesn't repeat anywhere in the string. If all characters are repeating, return null.
+// For "success", the function should return "u".
+// For "aabbcc", the function should return null.
+// Maximum Substring of Digits:
+// Given a string, find the maximum number that can be formed by a contiguous substring. Return the maximum number.
+// For "abc12345def67", the function should return 12345.
+// For "abcd", the function should return null.
