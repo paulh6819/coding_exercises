@@ -623,19 +623,55 @@ function downFloats(arr) {
 }
 console.log(downFloats(floats));
 
+function bigInts(str) {
+  const numberArray = [];
+  let accNum = [];
+
+  for (let item of str) {
+    if (Number.isInteger(Number(item)) === true) {
+      accNum.push(item);
+    } else {
+      if (accNum.length > 0) {
+        numberArray.push(accNum);
+        accNum = [];
+      }
+    }
+  }
+  numberArray.push(accNum);
+
+  return numberArray
+    .map((arr) => Number(arr.join("")))
+    .sort((a, b) => b - a)[0];
+}
+
+console.log(bigInts("gh12cdy6925m118983"));
+
 // Of course! Here are some progressively challenging problems that deal with string manipulation, similar to the one you've just tackled:
 
 // Reverse Words in a String:
 // Write a function that takes a string as an argument and returns the string with each word reversed but maintains their original order.
-// javascript
-// Copy code
-// reverseWords("Hello World"); // returns "olleH dlroW"
+
+const srtTest = "hey this is a string";
+
+function eachWordReversed(strTest) {
+  return strTest
+    .split(" ")
+    .map((item) => item.split("").reverse().join(""))
+    .join(" ");
+}
+console.log(eachWordReversed(srtTest));
+
 // Compress String:
 // Write a function that performs basic string compression using counts of repeated characters. If the compressed string is longer than the original string, return the original string.
 // javascript
 // Copy code
 // compressString("aabcccccaaa"); // returns "a2b1c5a3"
 // compressString("abcdef"); // returns "abcdef" (since compression would be "a1b1c1d1e1f1" which is longer)
+
+function compressString(str) {
+  let compressedSTR;
+}
+
 // Balanced Parentheses:
 // Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if:
 // Open brackets are closed by the same type of brackets.
@@ -655,3 +691,54 @@ console.log(downFloats(floats));
 // Given a string, find the maximum number that can be formed by a contiguous substring. Return the maximum number.
 // For "abc12345def67", the function should return 12345.
 // For "abcd", the function should return null.
+
+// Certainly! Here are some problems that specifically leverage Number(x) and Number.isInteger along with similar methods:
+
+// Easy:
+// Parse and Sum:
+// Write a function that takes an array of strings and returns the sum of all array elements that can be converted to non-negative integers.
+// javascript
+// Copy code
+// parseAndSum(["10", "20", "abc", "30a", "40"]); // returns 70
+// Is It a Number?:
+// Write a function that checks if a given string can be converted to a number (it can be an integer or a floating-point number).
+// javascript
+// Copy code
+// isItNumber("1234"); // returns true
+// isItNumber("123.45"); // returns true
+// isItNumber("123.45.67"); // returns false
+// Medium:
+// Extract Integers:
+// Given a string, extract all unique integers from it and return them as an array. Ignore floating point numbers.
+// javascript
+// Copy code
+// extractIntegers("Hello123world45.67abc89"); // returns [123, 45, 89]
+// Rounded Average:
+// Write a function that takes an array of strings. Convert each string to a number, calculate the average, and then return the rounded average. If a string can't be converted to a number, ignore it.
+// javascript
+// Copy code
+// roundedAverage(["10", "20.5", "abc", "30.7"]); // returns 21 (because the average is 20.7333... which rounds to 21)
+// Floating Point Precision:
+// Given an array of numbers in string format, convert them to numbers and sum them up. However, maintain precision up to only 2 decimal places without using any external libraries.
+// javascript
+// Copy code
+// preciseSum(["10.3333", "20.5555", "30.6666"]); // returns 61.56
+
+function firstNonRepeated(s) {
+  for (let char of s) {
+    if (s.indexOf(char) === s.lastIndexOf(char)) {
+      return char;
+    }
+  }
+  return null;
+}
+console.log(firstNonRepeated("m7nnsdjfns;bmv"));
+
+//using find to find first no repeats
+
+function norepeatsFind(str) {
+  return str
+    .split("")
+    .find((char) => str.indexOf(char) === str.lastIndexOf(char) || null);
+}
+console.log(norepeatsFind("s9lkdfhasdnfsdflkjasdfslkjp"));

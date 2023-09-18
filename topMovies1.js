@@ -53,26 +53,3 @@ function usingFilterAndMapToDream(data) {
 }
 
 console.log("using filter and map", usingFilterAndMapToDream(parsedTopMovies));
-
-function bigInts(str) {
-  const numberArray = [];
-  let accNum = [];
-
-  for (let item of str) {
-    if (Number.isInteger(Number(item)) === true) {
-      accNum.push(item);
-    } else {
-      if (accNum.length > 0) {
-        numberArray.push(accNum);
-        accNum = [];
-      }
-    }
-  }
-  numberArray.push(accNum);
-
-  return numberArray
-    .map((arr) => Number(arr.join("")))
-    .sort((a, b) => b - a)[0];
-}
-
-console.log(bigInts("gh12cdy6925m118983"));
