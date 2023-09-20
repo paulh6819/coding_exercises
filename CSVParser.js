@@ -6,9 +6,9 @@ const fileReader = function (filepath) {
   return readFileSync(filepath, "utf8").toString().trim().split(/\r?\n/);
 };
 
-const NBAData = fileReader("nba_finals.csv");
+// const NBAData = fileReader("nba_finals.csv");
 
-console.log(NBAData);
+// console.log(NBAData);
 
 function parseCSV(lines) {
   const headers = lines[0].split(",");
@@ -23,10 +23,6 @@ function parseCSV(lines) {
   }
   return result;
 }
-
-console.log(parseCSV(NBAData));
-
-console.log();
 
 //to start a function think - whats the indented input, whats the intended output
 

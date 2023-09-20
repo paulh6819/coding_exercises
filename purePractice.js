@@ -742,3 +742,42 @@ function norepeatsFind(str) {
     .find((char) => str.indexOf(char) === str.lastIndexOf(char) || null);
 }
 console.log(norepeatsFind("s9lkdfhasdnfsdflkjasdfslkjp"));
+
+function claculator(a, o, b) {
+  switch (o) {
+    case "+":
+      return a + b;
+    case "-":
+      return a + b;
+    case "*":
+      return a * b;
+    case "/":
+      if (b !== 0) {
+        return a / b;
+      }
+    default:
+      return null;
+  }
+}
+
+console.log(claculator(4, "p", 98));
+
+const objA = { a: 10, b: 20, c: 30, g: 72 };
+const objB = { a: 3, c: 6, d: 3 };
+const objC = { a: 5, d: 11, e: 8 };
+const objD = { c: 3, g: 100 };
+
+function combine(...args) {
+  return args.reduce((acc, obj) => {
+    for (let item in obj) {
+      if (acc[item] === undefined) {
+        acc[item] = obj[item];
+      } else {
+      }
+      // console.log(item);
+    }
+    return acc;
+  }, {});
+}
+
+console.log(combine(objA, objB, objC, objD));
