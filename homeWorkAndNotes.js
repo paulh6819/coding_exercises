@@ -36,3 +36,17 @@ for (let str of numberOneSongs(billBoardData)) {
 
 //home work - figure out how to clean up the data or maybe even reparse, or a seperate parser to figure out
 // if a line in the CSV file is incorrectly formatted.
+
+//9/20/2030
+// 1. look into nesting arrays and objects within objects and how to access them efficently 2. adding to sets
+
+//9/20/2023
+
+//remember - inorder to "contine" or "skip" -- in a forEach you can just use return
+//f (key === "") {
+//return;
+//}
+
+//9/22/2023
+
+// you can directly use Set on a string. no need to convert first to a an array

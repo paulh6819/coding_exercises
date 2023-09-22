@@ -36,11 +36,16 @@ function rankingMVPs(data) {
 
   const resultObj = {};
 
+  console.log(obj);
   Object.entries(obj).forEach(([key, value]) => {
+    console.log(key);
+    if (key === "") {
+      return;
+    }
     if (resultObj[value] === undefined) {
       resultObj[value] = key;
     } else {
-      resultObj[value] += key + " ";
+      resultObj[value] += " " + key;
     }
   });
   return Object.entries(resultObj).sort((a, b) => b[0] - a[0]);

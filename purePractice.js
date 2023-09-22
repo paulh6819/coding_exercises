@@ -781,3 +781,37 @@ function combine(...args) {
 }
 
 console.log(combine(objA, objB, objC, objD));
+
+const authorData = [
+  {
+    title: "A Journey",
+    author: "Jane Doe",
+    categories: ["Adventure", "Self-Help", "fiction", "N/A"],
+  },
+  {
+    title: "Mystic Lands",
+    author: "John Smith",
+    categories: ["Fantasy", "sci-fi"],
+  },
+  { title: "Life's Turns", author: "Jane Doe", categories: ["Self-Help"] },
+  {
+    title: "A Magic World",
+    author: "John Smith",
+    categories: ["Fantasy", "Adventure", "sci-fi"],
+  },
+];
+
+function authorSummery(data) {
+  return data.reduce((acc, item) => {
+    if (!acc[item["author"]]) {
+      acc[item["author"]] = new Set(item["categories"]);
+    } else {
+      item["categories"].forEach((category) =>
+        acc[item["author"]].add(category)
+      );
+    }
+    return acc;
+  }, {});
+}
+
+console.log(authorSummery(authorData));

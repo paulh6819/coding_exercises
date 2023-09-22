@@ -75,3 +75,11 @@ console.log(
   "using filter without set.",
   filtersWord("AEIOSHRTN", scrabbleWords)
 );
+
+function atLeast8UsesAtleastThree(words) {
+  return words.filter(
+    (word) => word.length > 7 && new Set(word.split("")).size < 4
+  );
+}
+
+console.log(atLeast8UsesAtleastThree(scrabbleWords));
