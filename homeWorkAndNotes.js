@@ -50,3 +50,17 @@ for (let str of numberOneSongs(billBoardData)) {
 //9/22/2023
 
 // you can directly use Set on a string. no need to convert first to a an array
+
+//Using Sets
+
+//function useAllAvailibleLettersb(words, str) {
+// return words.filter((word) => {
+//     const letters = new Set(str);
+
+//     return word.split("").every((char) => letters.has(char));
+//   });
+// }
+
+// console.log(useAllAvailibleLettersb(scrabbleWords, "ZPIA"));
+
+//9/24/2023

@@ -26,10 +26,10 @@ function useAllAvailibleLetters(words, str) {
 
 function useAllAvailibleLettersb(words, str) {
   return words.filter((word) => {
-    const letters = str.split("");
+    const letters = new Set(str);
 
-    return word.split("").every((char) => letters.includes(char));
+    return word.split("").every((char) => letters.has(char));
   });
 }
 
-console.log(useAllAvailibleLettersb(scrabbleWords, "SIZT"));
+console.log(useAllAvailibleLettersb(scrabbleWords, "ZPIA"));

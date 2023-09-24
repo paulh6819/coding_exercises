@@ -815,3 +815,27 @@ function authorSummery(data) {
 }
 
 console.log(authorSummery(authorData));
+
+// const objA = { a: 10, b: 20, c: 30 }
+// const objB = { a: 3, c: 6, d: 3 }
+// const objC = { a: 5, d: 11, e: 8 }
+// const objD = { c: 3 }
+
+const objZ = { a: 12, Q: 10000 };
+
+function combineb(...args) {
+  return args.reduce((acc, arg) => {
+    for (let item in arg) {
+      if (!acc[item]) {
+        acc[item] = arg[item];
+        console.log("this is working");
+      } else {
+        acc[item] += arg[item];
+        console.log("why is this not working");
+      }
+    }
+    return acc;
+  }, {});
+}
+
+console.log(combineb(objA, objB, objC, objZ));
