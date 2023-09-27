@@ -64,3 +64,7 @@ for (let str of numberOneSongs(billBoardData)) {
 // console.log(useAllAvailibleLettersb(scrabbleWords, "ZPIA"));
 
 //9/24/2023
+
+//// look up the differnece between a stack and a queue as they relate to computer science
+
+/// Math.abs() -- brings back the absolute value, fort example -5 and 5 will both return as 5

@@ -23,4 +23,4 @@ function threeDoubleLetters(words) {
     }
   });
 }
-console.log(threeDoubleLetters(scrabbleWords));
+//console.log(threeDoubleLetters(scrabbleWords));
