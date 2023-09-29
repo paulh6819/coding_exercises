@@ -72,3 +72,5 @@ for (let str of numberOneSongs(billBoardData)) {
 /// typeof whatEverYourVaribleIs --- will print out a string telling you what data type your varible is
 
 /// x.toString() -- this will convert a varible that points to a integer into a string data type
+
+/// I need to figure how to seperate the functions from my file flow

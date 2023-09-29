@@ -839,3 +839,25 @@ function combineb(...args) {
 }
 
 console.log(combineb(objA, objB, objC, objZ));
+
+let randomNum = 304958;
+
+console.log(typeof randomNum.toString());
+
+//Question: Create a JavaScript class named Person with properties name
+//and age, and a method sayHello() that logs "Hello, my name is [name] and I am [age] years old." to the console.
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+let jhon = new Person("jhon", 34);
+
+console.log(jhon.age);
+
+console.log(isNaN("Hello World, it's me Paul"));
+
+console.log(Array.isArray(["hello ", "world"]));

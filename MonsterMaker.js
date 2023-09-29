@@ -42,7 +42,7 @@ const fileReader = function (filepath) {
 };
 
 const animalData = fileReader("./animals.txt");
-
+console.log(animalData);
 const animals = [];
 
 for (let i = 1; i < animalData.length; i++) {
@@ -56,7 +56,7 @@ function makeMonster(animal1, animal2) {
   return monster;
 }
 
-const monster1 = makeMonster(animals[0], animals[1]);
+const monster1 = makeMonster(animals[4], animals[5]);
 
 console.log(monster1.name);
 
