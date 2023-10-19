@@ -74,3 +74,13 @@ for (let str of numberOneSongs(billBoardData)) {
 /// x.toString() -- this will convert a varible that points to a integer into a string data type
 
 /// I need to figure how to seperate the functions from my file flow
+
+// 9/29/2023
+
+//see how to use a trie
+
+// see how to turn a set into a string
+
+// Need to figure out how to make seperate functions with discrete functionality.
+// with this in mind, refactor smaller functions out of my gangly function.
+//figure out the stack, with it is and postfix Notation

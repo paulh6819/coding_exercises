@@ -139,6 +139,9 @@ function longestChain4(words) {
     }
   }
 
+  possibleChains.sort((a, b) => b.length - a.length);
+  console.log(possibleChains);
+
   let longestCombo = "";
   let result = "";
 
@@ -146,20 +149,39 @@ function longestChain4(words) {
   // and places them into a set and then we test each combo to see if the set has the combo within it, if it does, we
   // we can push the combo to the includedcombos array and return the longest item in the array
 
-  possibleChains.forEach((possibleChain) => {
-    if (possibleChain.length <= longestCombo.length) {
-      return;
+  for (let possibleChain of possibleChains) {
+    console.log(possibleChain);
+    if (result.length > 0) {
+      break;
     }
 
     for (let word of words) {
       let setWord = new Set(word);
       let wordReducedSorted = [...setWord].sort().join("");
       if (wordReducedSorted.includes(possibleChain)) {
-        longestCombo = possibleChain;
+        // longestCombo = possibleChain;
         result = `${possibleChain} ${word}`;
+        break;
       }
     }
-  });
+  }
+
+  // possibleChains.forEach((possibleChain) => {
+  //   console.log(possibleChain);
+  //   if (possibleChain.length <= longestCombo.length) {
+  //     return;
+  //   }
+
+  //   for (let word of words) {
+  //     let setWord = new Set(word);
+  //     let wordReducedSorted = [...setWord].sort().join("");
+  //     if (wordReducedSorted.includes(possibleChain)) {
+  //       longestCombo = possibleChain;
+  //       result = `${possibleChain} ${word}`;
+  //       break;
+  //     }
+  //   }
+  // });
 
   return result;
 }

@@ -42,7 +42,7 @@ const fileReader = function (filepath) {
 };
 
 const animalData = fileReader("./animals.txt");
-console.log(animalData);
+
 const animals = [];
 
 for (let i = 1; i < animalData.length; i++) {
@@ -62,3 +62,44 @@ console.log(monster1.name);
 
 monster1.playSound();
 console.log(monster1.sound);
+
+//input an array of every viable animal, output every Monster. 2. we need to use the new monster class. 3. a way to get every comination
+// using a for loop with an i index and then anothe one with a j index 4. monster class function will be in the j loop
+
+function createAllMonsters(numberOfLegs) {
+  const allAnimalsWithNumberLegs = [];
+  for (let animal of animals) {
+    if (animal.numberOfLegs === numberOfLegs) {
+      allAnimalsWithNumberLegs.push(animal);
+    }
+  }
+
+  const allMonsters = [];
+
+  for (let i = 0; i < allAnimalsWithNumberLegs.length; i++) {
+    for (let j = 0; j < allAnimalsWithNumberLegs.length; j++) {
+      if (i === j) {
+        continue;
+      }
+
+      allMonsters.push(
+        new Monster(allAnimalsWithNumberLegs[i], allAnimalsWithNumberLegs[j])
+      );
+    }
+  }
+
+  return allMonsters;
+}
+
+console.log(createAllMonsters(4));
+
+// finish this do --- getRandom monster.
+
+//function getRandomMonster({
+
+//})
+
+//Still need to find all the combinations
+//more discrete functions
+
+console.log(animals[0].numberOfLegs);

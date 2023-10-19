@@ -26,6 +26,7 @@
 // for confirmation. This could be good not only for clarifiy my own thoughts but sometimes interviewers are indeed looking for an atempt to communication
 // about the probelm.
 
+import { count } from "console";
 import { readFileSync } from "fs";
 
 const fileReader = function (filepath) {
@@ -861,3 +862,245 @@ console.log(jhon.age);
 console.log(isNaN("Hello World, it's me Paul"));
 
 console.log(Array.isArray(["hello ", "world"]));
+
+//Problem: Write a function that returns an array of powers of 2 up to a given number.
+
+let exampleNum = 20;
+
+function numsDatSquare(num) {
+  const arrayOfNums = [];
+  for (let i = 0; i <= num; i++) {
+    arrayOfNums.push(i);
+  }
+
+  //resrtart this or figureout how to get this to work tomorrow
+
+  return arrayOfNums.reduce((acc, item) => {
+    acc = acc;
+    if (acc < num) {
+      var newAcc = item * item + acc;
+    }
+    if (acc < num) {
+      return newAcc;
+    }
+    return acc;
+  }, 0);
+}
+console.log("this is the numer square", numsDatSquare(exampleNum));
+
+// return an array of numbers (that are a power of 2)
+// for which the input "n" is the sum
+const powers = (n) => {};
+
+// using a trie
+
+class TrieNode {
+  constructor() {
+    this.children;
+    this.endOfWord = false;
+  }
+}
+
+class SimpleTrie {
+  constructor() {
+    this.root = {};
+  }
+
+  insert(word) {
+    let node = this.root;
+    for (const char of word) {
+      if (!node[char]) {
+        node[char] = {};
+      }
+      node = node[char];
+    }
+    node.isEndOfWord = true;
+  }
+  search(word) {
+    let node = this.root;
+    for (const char of word) {
+      node = node[char];
+      if (!node) {
+        return false;
+      }
+    }
+    return Boolean(node.isEndOfWord);
+  }
+}
+
+let paulsTrie = new SimpleTrie();
+paulsTrie.insert("Henderson");
+console.log("this is my tire: ", paulsTrie.search("Hen"));
+console.log(
+  "this is a test of is henderson in the trie:",
+  paulsTrie.search("Henderson")
+);
+paulsTrie.insert("Hey");
+console.log("looking for hey; ", paulsTrie.search("Hey"));
+
+class Car {
+  constructor(color) {
+    this.color = color;
+  }
+  displayColor() {
+    console.log(this.color);
+  }
+}
+
+let redHonda = new Car("Red");
+redHonda.displayColor();
+
+//more practice with inheritance and classes
+class House {
+  constructor(size) {
+    this.size = size;
+  }
+  provideSize() {
+    console.log(this.size);
+  }
+}
+
+let bigHouse = new House("Four stories!");
+
+class Ranch extends House {
+  constructor(size, color) {
+    super(size);
+    this.color = color;
+  }
+  displayColorAndSize() {
+    console.log(`The color is ${this.color} and the size is ${this.size}`);
+  }
+}
+
+let brownRanch = new Ranch("One story", "brown");
+brownRanch.displayColorAndSize();
+bigHouse.provideSize();
+
+// practice with inderatance and super
+
+class SportsCar extends Car {
+  constructor(color, topSpeed) {
+    super(color);
+    this.topSpeed = topSpeed;
+  }
+  displayColorAndTopSpeed() {
+    console.log(
+      `The color for this car is ${this.color} and the top speed is ${this.topSpeed}`
+    );
+  }
+}
+let bluePorsche = new SportsCar("Blue", "The Speed of spring sunlight");
+bluePorsche.displayColorAndTopSpeed();
+
+class Tree {
+  constructor(bark) {
+    this.bark = bark;
+  }
+  displayBark() {
+    console.log(this.bark);
+  }
+  #privteDisplayBark() {
+    console.log(this.bark);
+  }
+}
+
+let firTree = new Tree("rough");
+
+firTree.displayBark();
+
+function palindrome(num, s) {
+  num = num - 1;
+  let count = 0;
+  const resultArr = [];
+  while (count < s) {
+    num += 1;
+    if (
+      num.toString().split("").reverse().join("") === num.toString() &&
+      num > 9
+    ) {
+      count += 1;
+      resultArr.push(num);
+    }
+  }
+  return resultArr;
+}
+console.log(palindrome(101, 2));
+
+//pratice with replace and replaceAll()
+
+//look into what are private methods
+
+function randomIntegers(int1, int2) {
+  return Math.floor(Math.random() * (int2 - int1 + 1) + int1);
+}
+
+let paulsRandomChar = randomIntegers(3, 9);
+
+function giveCharKTimes(char, k) {
+  if (k < 0) {
+    return "Not valid input";
+  }
+
+  let resultStr = "";
+
+  let counter = 0;
+  while (counter < k) {
+    resultStr += char;
+    counter += 1;
+  }
+  return resultStr;
+}
+
+console.log(giveCharKTimes("!", paulsRandomChar));
+
+function digits(arr) {
+  let concatedDigits = arr.reduce((acc, num) => {
+    acc += num;
+    return acc;
+  }, "");
+
+  let newNumber = Number(concatedDigits) + 1;
+
+  return newNumber.toString().split("").map(Number);
+}
+
+console.log(digits([1, 2, 3]));
+
+function createFrequnecyObject(arr) {
+  return arr.reduce((acc, num) => {
+    acc[num] = (acc[num] || 0) + 1;
+    return acc;
+  }, {});
+}
+
+function common(a, b, c) {
+  //let arrToSum = [];
+
+  const objA = createFrequnecyObject(a);
+  const objB = createFrequnecyObject(b);
+  const objC = createFrequnecyObject(c);
+
+  function summedUp(a2, b2, c2) {
+    let sum = 0;
+    for (let key in a2) {
+      if (b2[key] && c2[key]) {
+        let minFrequency = Math.min(a2[key], b2[key], c2[key]);
+        sum += Number(key) * minFrequency;
+      }
+    }
+  }
+}
+
+function commonSum() {
+  let finalSum;
+
+  try {
+    finalSum = summedUp(objA, objB, objC).reduce((acc, num) => acc + num);
+  } catch (error) {
+    finalSum = 0;
+  }
+
+  return finalSum;
+}
+
+console.log(commonSum([1, 2, 3], [5, 3, 2], [7, 3, 2]));
