@@ -1073,23 +1073,22 @@ function createFrequnecyObject(arr) {
   }, {});
 }
 
-function common(a, b, c) {
-  //let arrToSum = [];
+// function common(a, b, c) {
+//let arrToSum = [];
 
-  const objA = createFrequnecyObject(a);
-  const objB = createFrequnecyObject(b);
-  const objC = createFrequnecyObject(c);
+// const objA = createFrequnecyObject(a);
+// const objB = createFrequnecyObject(b);
+// const objC = createFrequnecyObject(c);
 
-  function summedUp(a2, b2, c2) {
-    let sum = 0;
-    for (let key in a2) {
-      if (b2[key] && c2[key]) {
-        let minFrequency = Math.min(a2[key], b2[key], c2[key]);
-        sum += Number(key) * minFrequency;
-      }
-    }
-  }
-}
+// function summedUp(a2, b2, c2) {
+//   let sum = 0;
+//   for (let key in a2) {
+//     if (b2[key] && c2[key]) {
+//       let minFrequency = Math.min(a2[key], b2[key], c2[key]);
+//       sum += Number(key) * minFrequency;
+//     }
+//   }
+// }
 
 function commonSum() {
   let finalSum;
@@ -1104,3 +1103,399 @@ function commonSum() {
 }
 
 console.log(commonSum([1, 2, 3], [5, 3, 2], [7, 3, 2]));
+
+function hasThreeOrFewerLetters(str) {
+  const uniqueLetters = new Set(str);
+  return uniqueLetters.size <= 3;
+}
+
+console.log(hasThreeOrFewerLetters("Hello world"));
+console.log(hasThreeOrFewerLetters("up"));
+
+function filterWordsWithThreeOrFewerLetters(words) {
+  return words.filter(hasThreeOrFewerLetters);
+}
+
+function doesWordContainCharsRSTLNE(words) {
+  // let charsToCheck = "RSTLNE"
+  return words.filter((word) =>
+    word.split("").every((char) => "RSTLNE".includes(char))
+  );
+}
+
+function CheckContainRSTLNE(word) {
+  return word.split("").every((char) => "RSTLNE".includes(char));
+}
+
+function checksUsingSmallFunction(words) {
+  return words.filter(CheckContainRSTLNE);
+}
+
+console.log(filterWordsWithThreeOrFewerLetters(scrabbleWords));
+console.log(doesWordContainCharsRSTLNE(["NEST", "BIRD", "TREE"]));
+console.log(CheckContainRSTLNE("COUCH"));
+console.log(checksUsingSmallFunction(scrabbleWords));
+const users = [
+  {
+    name: "Alice",
+    age: 25,
+    scores: {
+      math: 85,
+      english: 78,
+      science: 93,
+    },
+  },
+  {
+    name: "Bob",
+    age: 30,
+    scores: {
+      math: 89,
+      english: 76,
+      science: 90,
+    },
+  },
+  {
+    name: "Charlie",
+    age: 28,
+    scores: {
+      math: 75,
+      english: 88,
+      science: 91,
+    },
+  },
+  {
+    name: "David",
+    age: 22,
+    scores: {
+      math: 82,
+      english: 90,
+      science: 85,
+    },
+  },
+];
+
+// Now you can call the calculateStats function with this data:
+//const stats = calculateStats(users);
+//console.log(stats);
+
+// Task: Given a list of user data (name, age, and scores in various tests), calculate the average age of users and the highest score for each test.
+
+function averageAgeAndHighestScore(usersArry) {
+  const highestScoresAndSumOfAge = usersArry.reduce(
+    (acc, user, index) => {
+      acc.sumOfAges += user.age;
+      if (acc.scores.math < user.scores.math) {
+        acc.scores.math = user.scores.math;
+      }
+      if (acc.scores.science < user.scores.science) {
+        acc.scores.science = user.scores.science;
+      }
+      if (acc.scores.english < user.scores.english) {
+        acc.scores.english = user.scores.english;
+      }
+      return acc;
+    },
+    {
+      sumOfAges: 0,
+      scores: {
+        math: 0,
+        english: 0,
+        science: 0,
+      },
+    }
+  );
+
+  const averageAge = highestScoresAndSumOfAge.sumOfAges / usersArry.length;
+  return {
+    highestScores: highestScoresAndSumOfAge.scores,
+    averageAge: averageAge,
+  };
+}
+
+function bestScores(usersArray) {
+  return usersArray.reduce(
+    (acc, user, index) => {
+      if (acc.scores.math < user.scores.math) {
+        acc.scores.math = user.scores.math;
+      }
+      if (acc.scores.science < user.scores.science) {
+        acc.scores.science = user.scores.science;
+      }
+      if (acc.scores.english < user.scores.english) {
+        acc.scores.english = user.scores.english;
+      }
+      return acc;
+    },
+    {
+      scores: {
+        math: 0,
+        english: 0,
+        science: 0,
+      },
+    }
+  );
+}
+
+function averageAge(usersArry) {
+  const highestScoresAndSumOfAge = usersArry.reduce(
+    (acc, user, index) => {
+      acc.sumOfAges += user.age;
+
+      return acc;
+    },
+    {
+      sumOfAges: 0,
+    }
+  );
+
+  const averageAge = highestScoresAndSumOfAge.sumOfAges / usersArry.length;
+  return averageAge;
+}
+
+function userDataFormatting(userArry) {
+  return {
+    averageAgeIs: averageAge(userArry),
+    highestTestScoresAre: bestScores(userArry),
+  };
+}
+
+//console.log(averageAgeAndHighestScore(users));
+//console.log(bestScores(users));
+//console.log(averageAge(users));
+console.log(userDataFormatting(users));
+
+//now refactor the above and split it into three functions
+
+var lengthOfLongestSubstring = function (s) {
+  let longestString = "";
+  let currentString = "";
+
+  for (let char of s) {
+    if (currentString.includes(char)) {
+      currentString = "";
+    }
+    if (!currentString.includes(s)) {
+      currentString += char;
+    }
+
+    if (longestString.length < currentString.length) {
+      longestString = currentString;
+    }
+  }
+  console.log(longestString);
+  return longestString;
+};
+
+console.log(lengthOfLongestSubstring("aceadasdjskfjsiabcdefghkioplmn"));
+
+const practiceArray = [3, 6, 3453, 3453453, 2, -234, 8, 1, 9, 4545, 34];
+
+function findTheNewMax(arr) {
+  return Math.max(...arr);
+}
+
+console.log(findTheNewMax(practiceArray));
+
+function findTheNewestMin(arr) {
+  return Math.min(...arr);
+}
+
+console.log(findTheNewestMin(practiceArray));
+
+practiceArray.splice(2, 0, 100);
+console.log(practiceArray);
+let paulsBirthdayArray = practiceArray.splice(1, 4, 1989);
+
+console.log(paulsBirthdayArray);
+
+let removeArray = [3, 2, 2, 3];
+var removeElement = function (nums, val) {
+  console.log(nums);
+  let iLength = nums.length - 1;
+
+  for (let i = iLength; i > -1; i--) {
+    console.log(nums);
+    if (nums[i] === val) {
+      nums.splice(i, 1);
+    }
+    console.log(nums);
+  }
+
+  return nums;
+};
+
+console.log(
+  removeElement(removeArray, 3),
+  "  Here is the answer to the remove array"
+);
+
+console.log("Paul".repeat(40));
+
+let arrayMovingZeros = [
+  2, 5, 6, 7, 0, 7, 0, 5656, 0, 9999, 93, 2323, 3, 3, 3, 3, 0, 0, 0, 9, 9, 89,
+  0, 0, 0, 99696699, 9,
+];
+
+function moveZeros(arr) {
+  let positionsOfZero = 0;
+
+  let zeroCount = arr.filter((num) => num === 0).length;
+
+  console.log(zeroCount);
+
+  let index = arr.length - 1;
+
+  for (let i = arr.length - 1; i > -1; i--) {
+    console.log(arr[i]);
+    if (arr[i] !== 0) {
+      arr[index] = arr[i];
+      index--;
+    }
+  }
+
+  for (let i = 0; i < zeroCount; i++) {
+    arr[i] = 0;
+    console.log(arr[i]);
+  }
+
+  return arr;
+}
+
+console.log(moveZeros(arrayMovingZeros));
+
+let orderedArray = [1, 5, 6, 7, 8, 9, 14, 18];
+
+var searchInsert = function (nums, target) {
+  //split the array in have and if the number at the halfway point if larger than target
+  // use the top have of the array, if its smaller use the bottom half, continue until we
+  // have a match or cant divide anymore
+
+  //let halfWayPointOfarray = nums[Math.floor(nums.length / 2)];
+
+  function halfWayIndexOfarray(arr) {
+    return Math.floor(nums.length / 2);
+  }
+
+  if (nums[halfWayIndexOfarray(nums)] > target) {
+    //I need to figure out how to get 3 fourths of the array
+
+    let endIndexOfnums = nums.length - 1;
+    let beginningIndexForSlice = halfWayIndexOfarray(nums);
+    nums.slice(nums.index(beginningIndexForSlice), endIndexOfnums);
+  }
+
+  console.log("this is the halfway", halfWayIndexOfarray(nums));
+};
+
+searchInsert(orderedArray, 13);
+
+let nullTest = null;
+
+let coeleaseTest = nullTest ?? " this is a nullish test";
+
+console.log(coeleaseTest);
+
+var isIsomorphic = function (s, t) {
+  function objectMaker(string) {
+    let resulstObect = {};
+    string.split("").forEach((char) => {
+      if (resulstObect[char] === "undefined") {
+        console.log(char);
+      }
+    });
+  }
+  objectMaker(s);
+};
+
+isIsomorphic("hey hey hye", "nooooo");
+
+class LinkedList {
+  constructor(val, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
+let firstNode = new LinkedList(11);
+let secondNode = new LinkedList(98987646535 % 2);
+firstNode.next = secondNode;
+let thirdNode = new LinkedList(3);
+secondNode.next = thirdNode;
+let fourthNode = new LinkedList(4);
+thirdNode.next = fourthNode;
+let fithNode = new LinkedList(9853749857);
+fourthNode.next = fithNode;
+
+function printNodeList(head) {
+  let current = head;
+
+  while (current !== null) {
+    console.log(current.val);
+    current = current.next;
+  }
+}
+
+printNodeList(firstNode);
+
+class LinkedListTwo {
+  constructor(val, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
+let firstNodeSecondList = new LinkedList(11111);
+let secondNodeSecondList = new LinkedList(222222);
+firstNodeSecondList.next = secondNodeSecondList;
+
+printNodeList(firstNodeSecondList);
+
+function reverseNodeList(head) {
+  let next = null;
+  let current = head;
+  let prev = null;
+
+  while (current !== null) {
+    next = current.next;
+    current.next = prev;
+
+    prev = current;
+
+    current = next;
+  }
+  return prev;
+}
+
+reverseNodeList(firstNode);
+
+console.log(fithNode);
+
+class LinkedListCreation3 {
+  constructor(value, next = null) {
+    this.value = value;
+    this.next = next;
+  }
+}
+let newNodetwo = new LinkedListCreation3(200);
+let newNodeOne = new LinkedListCreation3(100, newNodetwo);
+
+let newNodeThree = new LinkedListCreation3(28374623864);
+newNodetwo.next = newNodeThree;
+
+function printNodes2(head) {
+  let currentNode = head;
+  let next = head.next;
+  let bust = false;
+
+  while (bust !== true) {
+    console.log("this is my lastest linked list exercise", currentNode.value);
+    // currentNode.next = null ? (bust = true) : (bust = false);
+    if (currentNode.next !== null) {
+      currentNode = currentNode.next;
+    } else {
+      bust = true;
+    }
+  }
+}
+
+printNodes2(newNodeOne);
