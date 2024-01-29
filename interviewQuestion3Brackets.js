@@ -129,3 +129,5 @@ console.assert(
   "YOU ARE A FAILURE SHIP DESTROYED"
 );
 console.log(stackSolution(test3));
+
+console.log(isNaN("r"));

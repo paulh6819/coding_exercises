@@ -1499,3 +1499,89 @@ function printNodes2(head) {
 }
 
 printNodes2(newNodeOne);
+
+//practice with double linked lists
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+let testNode = new Node(5000);
+testNode.next = "Hello World";
+
+console.log(testNode);
+
+class doubleLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  insertAtHead(value) {
+    let newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
+  }
+
+  deleteNode(value) {
+    let current = this.head;
+    while (current) {
+      if (current.value === value) {
+        if (current.prev) current.prev.next = current.next;
+        if (current.next) current.next.prev = current.prev;
+        if (current === this.head) this.head = current.next;
+        if (current === this.tail) this.tail = current.prev;
+        return;
+      }
+      current = current.next;
+    }
+  }
+
+  traverseForward() {
+    let current = this.head;
+    while (current) {
+      console.log(current.value);
+      current = current.next;
+    }
+  }
+
+  traverseBackward() {
+    let current = this.tail;
+    while (current) {
+      console.log(current.value);
+      current = current.prev;
+    }
+  }
+}
+
+let dll = new doubleLinkedList();
+dll.insertAtHead(3);
+dll.insertAtHead(6);
+dll.insertAtHead(9);
+
+dll.traverseForward();
+dll.deleteNode(6);
+dll.traverseBackward();
+
+let objectTest = { A: 98, B: 380 };
+console.log(objectTest.hasOwnProperty("A"));
+console.log(objectTest.hasOwnProperty("Z"));
+console.log(objectTest["A"]);
+console.log(objectTest.B);
+console.log(objectTest["C"]);
+
+//binary search sorted array, find the index
+
+function binarySearch(arr, n) {}
+
+console.log(binarySearch([1, 4, 6, 8, 9, 12, 345, 1234, 2346], 9));
